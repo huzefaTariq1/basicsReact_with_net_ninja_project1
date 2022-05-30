@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
 
-  const [showItem,setShowItem]=useState(false)
+  const [showEvents,setShowEvents]=useState(true)
 
   const [events,setEvents]=useState([
     {title:"Eid Ul Adha",id:0},
@@ -22,14 +22,21 @@ const deleteEvent=(id)=>{
 
 
 }
+
+const showEventsToogle=()=>{
+  setShowEvents(!showEvents)
+}
   
 
   return (
     <div className="App">
       
     
+    <div>
+      <button onClick={()=>showEventsToogle()}>{showEvents===true?"hide Events":"Show events"}</button>
+    </div>
 
-      {events.map((event)=>{
+      { showEvents && events.map((event)=>{
         return(
           <div key={event.id}>
           <div>{event.title}</div>
