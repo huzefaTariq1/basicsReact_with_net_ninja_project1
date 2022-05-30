@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [showItem,setShowItem]=useState(false)
+
+  const [events,setEvents]=useState([
+    {title:"Eid Ul Adha",id:0},
+    {title:"tour to pakistan",id:1},
+    {title:"going to czn marrigae",id:2}
+  ])
+
+
+const deleteEvent=(id)=>{
+   const filterArray=events.filter((event)=>{
+     return event.id!==id
+   })
+   console.log(filterArray)
+   setEvents(filterArray);
+
+
+}
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+    
+
+      {events.map((event)=>{
+        return(
+          <div key={event.id}>
+          <div>{event.title}</div>
+          <button onClick={()=>deleteEvent(event.id)}>Delete</button>
+          </div>
+        )
+      })}
     </div>
   );
 }
