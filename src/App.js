@@ -54,12 +54,12 @@ function App() {
       </div>
 
 
-     { showEvents &&  <EventsList events={events} deleteEvent={deleteEvent}></EventsList> }
+     { showEvents && <EventsList events={events} deleteEvent={deleteEvent} showModalfunction={showModalfunction}></EventsList> }
 
 
 
       {showModal && <Modal showModalfunction={showModalfunction}>
-       <AddEventForm addEvents={addEvents} showModalfunction={showModalfunction} ></AddEventForm>
+       <AddEventForm addEvents={addEvents} showModalfunction={showModalfunction}  events={events} ></AddEventForm>
       </Modal>
       }
         
