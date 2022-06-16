@@ -7,7 +7,7 @@ const Modal = (props) => {
         <div className='modal'>
            {props.children}
          <br></br>
-           <button onClick={props.showModalfunction} >X</button>
+           
         </div>
     </div>
   )
